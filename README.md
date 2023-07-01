@@ -1,38 +1,44 @@
-# Forum-App
+# PHP Forum App
 
 ## Project's Description
 Forum-App is a web application that enables users to participate in online discussions, create topics, and connect with other users in a forum-like environment.
 
-You can view the live 
-
 ## Main Objective/s 
 The main objective of Forum-App is to provide a user-friendly platform for users to share ideas, exchange knowledge, and engage in meaningful conversations on various topics.
 
-## Tools Used
-  - PHP
-  - MySQL
-  - HTML/CSS
-  - JavaScript
+![Preview](https://lh3.googleusercontent.com/pw/AJFCJaUG3y4mJv32J_3AhrgRMrLwyuJRZnpcGoIO8DKQO3dBBe_TkTeS2UXaV7S6y_lwq0-Rf2yCBkHbltVCJ75O6v8mWSau-Ei-xD_411Iu2T9iDoUvgXgRNUxinA2D2iin3N2QhNsB7aQhdFIbr4CaEEzB=w879-h277-s-no)
 
+You can view the live web page [here]().
 ## Project's Workflow 
-Users can register an account or log in if they already have one.
-Upon logging in, users can access the members' area to view and interact with other users.
-Users can create topics, browse existing topics, and post replies.
-Users can view profiles of other users to learn more about them.
-Users can upload profile pictures to personalize their accounts.
-Administrators have additional privileges to manage user accounts and moderate content.
+- Users can still log in or register as new users.
+- After successful login, users are authenticated and redirected to the dashboard.
+- From the dashboard, regular users can perform actions such as creating topics, posting replies, and editing their profile.
+- Administrators, indicated by the "Admin" condition, have additional privileges.
+- Authenticated administrators are directed to the admin dashboard, where they can perform various administrative tasks.
+- The admin dashboard allows administrators to manage users, topics, and posts.
+
 ``` mermaid
+graph TD;
+    A[User] --> B(Login);
+    A --> C(Register);
+    B --> D{Authenticated};
+    D --> E(Dashboard);
+    E --> F{Create Topic};
+    F --> G(Create Post);
+    G --> F;
+    E --> H(View Topic);
+    H --> I{Post Reply};
+    I --> H;
+    E --> J(Edit Profile);
+    J --> E;
+    E --> K(Logout);
+    D --> L{Admin};
+    L --> M(Admin Dashboard);
+    M --> N{Manage Users};
+    M --> O{Manage Topics};
+    M --> P{Manage Posts};
+```
 
-graph TD
-    A[Register / Log In] --> B[Members Area]
-    B --> C[Create Topics / Browse Topics]
-    C --> D[Post Replies]
-    B --> E[View Profiles]
-    E --> F[Upload Profile Pictures]
-    B --> G[Administrator Privileges]
-    G --> C
-
-  ```
 ## Quick Installation
 To quickly install and set up the Forum-App project, follow these steps:
 
