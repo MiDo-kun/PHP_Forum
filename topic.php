@@ -32,7 +32,7 @@ include "connect.php";
             if (mysqli_num_rows($check)) {
 
                 while ($row = mysqli_fetch_assoc($check)) {
-                    $check_u = mysqli_query($connect, "SELECT * FROM users WHERE username='" . $row['content_creator'] . "'");
+                    $check_u = mysqli_query($connect, "SELECT * FROM members WHERE username='" . $row['content_creator'] . "'");
                     while ($row_u = mysqli_fetch_assoc($check_u)) {
                         $user_id = $row_u['id'];
                     }

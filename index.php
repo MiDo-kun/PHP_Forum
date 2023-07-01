@@ -61,7 +61,7 @@ if (!@$_GET['date']) {
             echo "<tr><td style='text-align:center;'>" . $row['topic_id'] . "</td>";
             echo "<td style='text-align:center;'> <a href='topic.php?id=$id'>" . $row['topic_name'] . "</a></td>";
             echo "<td style='text-align:center;'>" . $row['views'] . "</td>";
-            $check_u = mysqli_query($connect, "SELECT * FROM users WHERE username='" . $row['content_creator'] . "'");
+            $check_u = mysqli_query($connect, "SELECT * FROM members WHERE username='" . $row['content_creator'] . "'");
             while ($row_u = mysqli_fetch_assoc($check_u)) {
                 $user_id = $row_u['id'];
             }
@@ -80,7 +80,7 @@ if (@$_GET['date']) {
         echo "<tr><td style='text-align:center;'>" . $row_d['topic_id'] . "</td>";
         echo "<td style='text-align:center;'> <a href='topic.php?id=$id'>" . $row_d['topic_name'] . "</a></td>";
         echo "<td style='text-align:center;'>" . $row_d['views'] . "</td>";
-        $check_u = mysqli_query($connect, "SELECT * FROM users WHERE username='" . $row_d['content_creator'] . "'");
+        $check_u = mysqli_query($connect, "SELECT * FROM members WHERE username='" . $row_d['content_creator'] . "'");
         while ($row_u = mysqli_fetch_assoc($check_u)) {
             $user_id = $row_u['id'];
         }

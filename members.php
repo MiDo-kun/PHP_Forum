@@ -23,7 +23,7 @@ include "connect.php";
     include "header.php";
     echo "<center>";
     echo "<h1>Members:</h1> <br>";
-    $check = mysqli_query($connect, "SELECT * FROM users");
+    $check = mysqli_query($connect, "SELECT * FROM members");
     $rows = mysqli_num_rows($check);
 
     while ($row = mysqli_fetch_assoc($check)) {

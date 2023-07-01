@@ -25,7 +25,7 @@
     include "header.php";
     
     if($_GET['id']){
-        $check = mysqli_query($connect, "SELECT * FROM users WHERE id ='".$_GET['id']."' ");
+        $check = mysqli_query($connect, "SELECT * FROM members WHERE id ='".$_GET['id']."' ");
         $rows = mysqli_num_rows($check);
 
         if($rows != 0){

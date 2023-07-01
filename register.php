@@ -38,7 +38,7 @@ if (isset($_POST['submit'])) {
     if ($username && $password && $repass && $email) {
         if (strlen($username) >= 5 && strlen($username) < 25 && strlen($password)  > 6) {
             if ($repass == $password) {
-                if ($query = mysqli_query($connect, "INSERT INTO users ( id, username, password, email, date) VALUES ('', '$username', '$pass_en', '$email', '$date')")) {
+                if ($query = mysqli_query($connect, "INSERT INTO members ( id, username, password, email, date) VALUES ('', '$username', '$pass_en', '$email', '$date')")) {
                     echo "You have been registered as $username. Click <a href='login.php'>here</a> to log in.";
                 } else {
                     echo "fail";
@@ -63,7 +63,7 @@ if (isset($_POST['submit'])) {
     echo "<br>" . $password;
     echo "<br>" . $repass;
     echo "<br>" . $email;
-    //     if($query= mysqli_query ($connect, "INSERT INTO users ( id, username, password, email) VALUES ('', '$username', '$password', '$email')" ));
+    //     if($query= mysqli_query ($connect, "INSERT INTO members ( id, username, password, email) VALUES ('', '$username', '$password', '$email')" ));
     //         echo "Success!";
     // }
     //     else{

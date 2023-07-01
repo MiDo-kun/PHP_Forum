@@ -10,7 +10,7 @@ if (isset($_POST['submit'])) {
   $passwordHash = sha1($password);
 
   // Insert user into the database
-  $query = "INSERT INTO users (username, password, email, date) VALUES ('$username', '$passwordHash', '$email', '$date')";
+  $query = "INSERT INTO members (username, password, email, date) VALUES ('$username', '$passwordHash', '$email', '$date')";
   $result = mysqli_query($connect, $query);
 
   if ($result) {

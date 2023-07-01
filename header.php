@@ -28,7 +28,7 @@ include "connect.php";
 
 <body>
   <?php
-  $check = mysqli_query($connect, "SELECT * FROM users WHERE username ='$user'");
+  $check = mysqli_query($connect, "SELECT * FROM members WHERE username ='$user'");
   $rows = mysqli_num_rows($check);
 
   while ($row = mysqli_fetch_assoc($check)) {

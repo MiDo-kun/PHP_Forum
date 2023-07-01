@@ -23,7 +23,7 @@ include "connect.php";
     include "header.php";
     ?>
     <?php
-    $check = mysqli_query($connect, "SELECT * FROM users");
+    $check = mysqli_query($connect, "SELECT * FROM members");
     $rows = mysqli_num_rows($check);
 
     while ($row = mysqli_fetch_assoc($check)) {
@@ -89,7 +89,7 @@ if (@$_GET['action'] == "ci") {
                     $fileNameNew = uniqid('', true) . "." . $fileActualExt;
                     $fileDestination = 'images/' . $fileNameNew;
                     move_uploaded_file($fileTmpName, $fileDestination);
-                    if ($query = mysqli_query($connect, "UPDATE users SET profile_pic='images/$fileNameNew' WHERE username='$user'")) {
+                    if ($query = mysqli_query($connect, "UPDATE members SET profile_pic='images/$fileNameNew' WHERE username='$user'")) {
                         header("Location: account.php");
                     }
                 } else {
@@ -124,7 +124,7 @@ $pass_en = sha1($cur_pass);
 if (isset($_POST['change_pass'])) {
     echo "<center>";
 
-    $check = mysqli_query($connect, "SELECT * FROM users WHERE username ='$user'");
+    $check = mysqli_query($connect, "SELECT * FROM members WHERE username ='$user'");
     $rows = mysqli_num_rows($check);
     while ($row = mysqli_fetch_assoc($check)) {
         $password = $row['password'];
@@ -146,7 +146,7 @@ if (isset($_POST['change_pass'])) {
 
     if ($pass_en == $password && $new_pass ==  $re_pass) {
         $updated_pass = sha1($pass);
-        if (mysqli_query($connect, "UPDATE users SET password='$updated_pass' WHERE username='$user'")) {
+        if (mysqli_query($connect, "UPDATE members SET password='$updated_pass' WHERE username='$user'")) {
             header("Location: login.php");
         }
     }

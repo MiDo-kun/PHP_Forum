@@ -32,7 +32,7 @@ if (isset($_POST["submit"])) {
   $password = @$_POST['password'];
 
   if ($username &&  $password) {
-    $check = mysqli_query($connect, "SELECT * FROM users WHERE username ='$username'");
+    $check = mysqli_query($connect, "SELECT * FROM members WHERE username ='$username'");
     $rows = mysqli_num_rows($check);
 
     if ($rows != 0) {
