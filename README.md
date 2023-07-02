@@ -42,7 +42,7 @@ sequenceDiagram
     Forum-->>User: User logged out
 ```
 
-#### Admin's Interaction
+#### Admin Interaction
 ```mermaid
 sequenceDiagram
     participant Admin
