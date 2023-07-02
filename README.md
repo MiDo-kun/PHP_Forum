@@ -2,10 +2,10 @@
 
 Forum-App is a web application that enables users to participate in online discussions, create topics, and connect with other users in a forum-like environment.
 
+![Preview](https://lh3.googleusercontent.com/pw/AJFCJaUG3y4mJv32J_3AhrgRMrLwyuJRZnpcGoIO8DKQO3dBBe_TkTeS2UXaV7S6y_lwq0-Rf2yCBkHbltVCJ75O6v8mWSau-Ei-xD_411Iu2T9iDoUvgXgRNUxinA2D2iin3N2QhNsB7aQhdFIbr4CaEEzB=w879-h277-s-no)
+
 ## Main Objective/s 
 The main objective of Forum-App is to provide a user-friendly platform for users to share ideas, exchange knowledge, and engage in meaningful conversations on various topics.
-
-![Preview](https://lh3.googleusercontent.com/pw/AJFCJaUG3y4mJv32J_3AhrgRMrLwyuJRZnpcGoIO8DKQO3dBBe_TkTeS2UXaV7S6y_lwq0-Rf2yCBkHbltVCJ75O6v8mWSau-Ei-xD_411Iu2T9iDoUvgXgRNUxinA2D2iin3N2QhNsB7aQhdFIbr4CaEEzB=w879-h277-s-no)
 
 ## Sequence Diagram
 
