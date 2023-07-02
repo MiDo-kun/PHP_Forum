@@ -1,6 +1,5 @@
 # PHP Forum App
 
-## Project's Description
 Forum-App is a web application that enables users to participate in online discussions, create topics, and connect with other users in a forum-like environment.
 
 ## Main Objective/s 
@@ -43,7 +42,7 @@ sequenceDiagram
     Forum-->>User: User logged out
 ```
 
-#### Sequence Diagram for Admin's Interaction
+#### Admin's Interaction
 ```mermaid
 sequenceDiagram
     participant Admin
