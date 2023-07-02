@@ -132,4 +132,4 @@ If you would like to contribute, please follow these guidelines:
   3. Submit a pull request explaining the changes you have made.
 
 License
-This project is licensed under the MIT License. See the LICENSE file for more details.
+This project is licensed under the MIT License. See the [LICENSE](https://github.com/MiDo-kun/PHP_Forum/blob/main/LICENSE) file for more details.
