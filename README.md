@@ -8,37 +8,113 @@ The main objective of Forum-App is to provide a user-friendly platform for users
 
 ![Preview](https://lh3.googleusercontent.com/pw/AJFCJaUG3y4mJv32J_3AhrgRMrLwyuJRZnpcGoIO8DKQO3dBBe_TkTeS2UXaV7S6y_lwq0-Rf2yCBkHbltVCJ75O6v8mWSau-Ei-xD_411Iu2T9iDoUvgXgRNUxinA2D2iin3N2QhNsB7aQhdFIbr4CaEEzB=w879-h277-s-no)
 
-You can view the live web page [here]().
-## Project's Workflow 
-- Users can still log in or register as new users.
-- After successful login, users are authenticated and redirected to the dashboard.
-- From the dashboard, regular users can perform actions such as creating topics, posting replies, and editing their profile.
-- Administrators, indicated by the "Admin" condition, have additional privileges.
-- Authenticated administrators are directed to the admin dashboard, where they can perform various administrative tasks.
-- The admin dashboard allows administrators to manage users, topics, and posts.
+## Sequence Diagram
 
+#### User Interaction
 ``` mermaid
-graph TD;
-    A[User] --> B(Login);
-    A --> C(Register);
-    B --> D{Authenticated};
-    D --> E(Dashboard);
-    E --> F{Create Topic};
-    F --> G(Create Post);
-    G --> F;
-    E --> H(View Topic);
-    H --> I{Post Reply};
-    I --> H;
-    E --> J(Edit Profile);
-    J --> E;
-    E --> K(Logout);
-    D --> L{Admin};
-    L --> M(Admin Dashboard);
-    M --> N{Manage Users};
-    M --> O{Manage Topics};
-    M --> P{Manage Posts};
+sequenceDiagram
+    participant User
+    participant Forum
+    participant Database
+
+    User->>Forum: Login
+    Forum->>Database: Authenticate User
+    Database-->>Forum: User Authenticated
+    Forum-->>User: User authenticated
+    User->>Forum: View Topics
+    Forum->>Database: Fetch Topic List
+    Database-->>Forum: List of topics
+    Forum-->>User: List of topics
+    User->>Forum: View Topic Details
+    Forum->>Database: Fetch Topic Details
+    Database-->>Forum: Topic details
+    Forum-->>User: Topic details
+    User->>Forum: Create Topic
+    Forum->>Database: Create New Topic
+    Database-->>Forum: Topic created
+    Forum-->>User: Topic created
+    User->>Forum: Add Post
+    Forum->>Database: Add New Post
+    Database-->>Forum: Post added
+    Forum-->>User: Post added
+    User->>Forum: Logout
+    Forum->>Database: Logout User
+    Database-->>Forum: User logged out
+    Forum-->>User: User logged out
 ```
 
+#### Sequence Diagram for Admin's Interaction
+```mermaid
+sequenceDiagram
+    participant Admin
+    participant Forum
+    participant Database
+
+    Admin->>Forum: Login
+    Forum->>Database: Authenticate Admin
+    Database-->>Forum: Admin Authenticated
+    Forum-->>Admin: Admin authenticated
+    Admin->>Forum: View Reports
+    Forum->>Database: Fetch Reports
+    Database-->>Forum: List of reports
+    Forum-->>Admin: List of reports
+    Admin->>Forum: View User Activity
+    Forum->>Database: Fetch User Activity
+    Database-->>Forum: User activity details
+    Forum-->>Admin: User activity details
+    Admin->>Forum: Delete Topic
+    Forum->>Database: Delete Topic
+    Database-->>Forum: Topic deleted
+    Forum-->>Admin: Topic deleted
+    Admin->>Forum: Delete Post
+    Forum->>Database: Delete Post
+    Database-->>Forum: Post deleted
+    Forum-->>Admin: Post deleted
+    Admin->>Forum: Ban User
+    Forum->>Database: Ban User
+    Database-->>Forum: User banned
+    Forum-->>Admin: User banned
+    Admin->>Forum: Logout
+    Forum->>Database: Logout Admin
+    Database-->>Forum: Admin logged out
+    Forum-->>Admin: Admin logged out
+```
+
+## Entity Relationship Diagram
+```mermaid
+erDiagram
+    users ||..o{ topic : creates
+    topic ||--o{ post : has
+
+    users {
+        int id PK
+        string username 
+        string password
+        string email
+        date date
+        int replies
+        int topics
+        int score
+        string profile_pic
+    }
+
+    topic {
+        int id PK
+        string topic_name
+        string topic_content
+        string content_creator
+        date date
+    }
+
+    post {
+        int post_id PK    
+        string post_content
+        string post_creator
+        int post_id FK
+        date date
+    }
+
+```
 ## Quick Installation
 To quickly install and set up the Forum-App project, follow these steps:
 
